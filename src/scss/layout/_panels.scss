@@ -8,6 +8,7 @@
   height: 100%;
   overflow-y: auto;
   padding: vars.$spacing-lg;
+  padding-top: 0!important;
   @include mix.flex-column;
 
   @include mix.respond-to(md) {
@@ -23,7 +24,8 @@
   }
 
   .preview-section, .file-upload-section {
-    height: auto;
+    min-height: 230px;
+    // height: auto;
     margin-bottom: vars.$spacing-md;
   }
 
