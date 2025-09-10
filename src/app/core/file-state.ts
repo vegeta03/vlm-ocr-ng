@@ -1,5 +1,15 @@
 import { Injectable, signal } from '@angular/core';
 
+export interface BoundingBox {
+  id: string;
+  page: number;
+  x: number; // normalized 0..1
+  y: number; // normalized 0..1
+  w: number; // normalized 0..1
+  h: number; // normalized 0..1
+  label?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +20,7 @@ export class FileState {
   readonly format = signal<'markdown' | 'json' | 'yaml'>('markdown');
   readonly status = signal<'ready' | 'processing' | 'complete' | 'error'>('ready');
   readonly output = signal<string>('');
+  readonly boxes = signal<BoundingBox[]>([]);
 
   setFile(file: File) {
     this.file.set(file);
@@ -20,6 +31,7 @@ export class FileState {
     this.currentPage.set(0);
     this.status.set('ready');
     this.output.set('');
+    this.boxes.set([]);
   }
 
   clear() {
@@ -28,5 +40,10 @@ export class FileState {
     this.totalPages.set(0);
     this.status.set('ready');
     this.output.set('');
+    this.boxes.set([]);
+  }
+
+  setBoxes(boxes: BoundingBox[]) {
+    this.boxes.set(boxes);
   }
 }

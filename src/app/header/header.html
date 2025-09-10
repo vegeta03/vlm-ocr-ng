@@ -1,10 +1,12 @@
-<header class="theme-header">
-  <h1>VLM OCR Interface</h1>
-  <div class="theme-selector">
-    <span>Theme</span>
-    <div class="color-options">
-      <button class="color-option" data-theme="light" title="Light mode" (click)="setTheme('light')"></button>
-      <button class="color-option" data-theme="dark" title="Dark mode" (click)="setTheme('dark')"></button>
-    </div>
-  </div>
-</header>
+<mat-toolbar class="theme-header">
+  <span class="mat-headline-small">VLM OCR Interface</span>
+  <span class="spacer"></span>
+  <mat-button-toggle-group appearance="legacy" aria-label="Theme toggle" (change)="setTheme($event.value)" value="light">
+    <mat-button-toggle value="light">
+      <mat-icon>light_mode</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="dark">
+      <mat-icon>dark_mode</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-toolbar>

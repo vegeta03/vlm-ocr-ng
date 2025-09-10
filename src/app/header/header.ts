@@ -1,9 +1,12 @@
 import { Component, inject } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 import { Theme } from '../core/theme';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [MatToolbarModule, MatButtonToggleModule, MatIconModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

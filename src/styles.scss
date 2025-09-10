@@ -4,11 +4,14 @@
 // components according to the Material 3 design spec.
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
+@use './scss/main' as *;
 @use '@angular/material' as mat;
 
+// Material 3 (Material You) theme setup with light as default
 html {
   @include mat.theme((
     color: (
+      theme-type: light,
       primary: mat.$rose-palette,
       tertiary: mat.$red-palette,
     ),
@@ -17,24 +20,47 @@ html {
   ));
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
+// Dark theme overrides are applied when the body has .theme-dark set by Theme service
+body.theme-dark {
+  @include mat.theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$rose-palette,
+      tertiary: mat.$red-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
+// Map legacy custom CSS variables used across the app to Material system tokens
+:root {
+  --md-primary: var(--mat-sys-primary);
+  --md-on-primary: var(--mat-sys-on-primary);
+  --md-primary-container: var(--mat-sys-primary-container);
+  --md-on-primary-container: var(--mat-sys-on-primary-container);
+  --md-secondary: var(--mat-sys-secondary);
+  --md-secondary-container: var(--mat-sys-secondary-container);
+  --md-on-secondary: var(--mat-sys-on-secondary);
+  --md-on-secondary-container: var(--mat-sys-on-secondary-container);
+  --md-surface: var(--mat-sys-surface);
+  --md-surface-variant: var(--mat-sys-surface-container);
+  --md-on-surface: var(--mat-sys-on-surface);
+  --md-on-surface-variant: var(--mat-sys-on-surface-variant);
+  --md-outline: var(--mat-sys-outline);
+  --md-error: var(--mat-sys-error);
+}
+
+body {
+  color-scheme: light;
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
 }
-// Import SCSS modules first (Sass requires @use before any other rules)
-@use './scss/main' as *;
+
+body.theme-dark { color-scheme: dark; }
+// (7-1 SCSS modules are imported at the top of this file)
 
 // Then bring in Tailwind layers
 @tailwind base;

@@ -1,10 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonModule } from '@angular/material/button';
 import { FileState } from '../core/file-state';
 import { Ocr } from '../core/ocr';
 
 @Component({
   selector: 'app-format-toggle',
-  imports: [],
+  imports: [MatButtonToggleModule, MatButtonModule],
   templateUrl: './format-toggle.html',
   styleUrl: './format-toggle.scss'
 })

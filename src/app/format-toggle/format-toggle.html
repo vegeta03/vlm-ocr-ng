@@ -1,7 +1,7 @@
-<div class="format-options">
-  <button class="chip chip-selectable" [class.active]="format() === 'markdown'" (click)="set('markdown')">Markdown</button>
-  <button class="chip chip-selectable" [class.active]="format() === 'json'" (click)="set('json')">JSON</button>
-  <button class="chip chip-selectable" [class.active]="format() === 'yaml'" (click)="set('yaml')">YAML</button>
-</div>
+<mat-button-toggle-group name="format" [value]="format()" (change)="set($event.value)" aria-label="Output format">
+  <mat-button-toggle value="markdown">Markdown</mat-button-toggle>
+  <mat-button-toggle value="json">JSON</mat-button-toggle>
+  <mat-button-toggle value="yaml">YAML</mat-button-toggle>
+</mat-button-toggle-group>
 <p class="text-body-medium text-on-surface-variant mb-4">Select extract format above</p>
-<button id="processButton" class="btn-primary" [disabled]="!hasFile() || processing()" (click)="process()">Process File</button>
+<button id="processButton" mat-raised-button color="primary" [disabled]="!hasFile() || processing()" (click)="process()">Process File</button>

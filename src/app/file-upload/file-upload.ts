@@ -1,10 +1,13 @@
 import { Component, inject } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BytesPipe } from '../shared/bytes-pipe';
 import { FileState } from '../core/file-state';
 
 @Component({
   selector: 'app-file-upload',
-  imports: [BytesPipe],
+  imports: [BytesPipe, MatCardModule, MatButtonModule, MatProgressBarModule],
   templateUrl: './file-upload.html',
   styleUrl: './file-upload.scss'
 })

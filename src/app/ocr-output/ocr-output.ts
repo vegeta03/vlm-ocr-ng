@@ -1,9 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 import { FileState } from '../core/file-state';
 
 @Component({
   selector: 'app-ocr-output',
-  imports: [],
+  imports: [MatTabsModule, MatButtonModule],
   templateUrl: './ocr-output.html',
   styleUrl: './ocr-output.scss'
 })

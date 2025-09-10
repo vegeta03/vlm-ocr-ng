@@ -11,7 +11,14 @@
       <span>Upload an image to preview</span>
     </div>
     } @else {
-    <img [src]="imgSrc()" alt="Preview" />
+    <div class="image-stage">
+      <img [src]="imgSrc()" alt="Preview" />
+      <svg class="bbox-layer" preserveAspectRatio="xMidYMid meet">
+        @for (b of boxes(); track b.id) {
+          <rect class="bbox" [attr.x]="b.x * 100 + '%'" [attr.y]="b.y * 100 + '%'" [attr.width]="b.w * 100 + '%'" [attr.height]="b.h * 100 + '%'"></rect>
+        }
+      </svg>
+    </div>
     }
     <div class="page-controls" [style.opacity]="showPager() ? 1 : 0">
       <button id="prevPage" class="btn-icon" [disabled]="atStart()" (click)="nav(-1)">◀</button>

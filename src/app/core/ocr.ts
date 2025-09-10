@@ -15,6 +15,13 @@ export class Ocr {
     setTimeout(() => {
       const out = this.mockResult();
       this.state.output.set(out);
+      // mock a few bounding boxes normalized to the image
+      const boxes = [
+        { id: 'b1', page: 0, x: 0.07, y: 0.12, w: 0.82, h: 0.12, label: 'Header' },
+        { id: 'b2', page: 0, x: 0.06, y: 0.30, w: 0.40, h: 0.10, label: 'Patient' },
+        { id: 'b3', page: 0, x: 0.06, y: 0.44, w: 0.88, h: 0.24, label: 'Claims Table' },
+      ];
+      this.state.setBoxes(boxes);
       this.state.status.set('complete');
     }, 1200);
   }

@@ -21,6 +21,8 @@ export class ImagePreview {
     return URL.createObjectURL(file);
   });
 
+  readonly boxes = computed(() => this.state.boxes().filter(b => b.page === this.page()));
+
   // removed preview size toggle; preview always fills remaining space
 
   nav(delta: number) {

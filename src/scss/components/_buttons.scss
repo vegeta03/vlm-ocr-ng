@@ -5,19 +5,19 @@
 
 .btn-primary {
   @include mix.button-base;
-  background-color: var(--md-primary);
-  color: var(--md-on-primary);
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
   &:hover {
-    background-color: var(--md-primary);
+    background-color: var(--mat-sys-primary);
     filter: brightness(0.9);
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   &:disabled {
-    background-color: var(--md-on-surface-variant);
-    color: var(--md-surface);
+    background-color: var(--mat-sys-on-surface-variant);
+    color: var(--mat-sys-surface);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -31,11 +31,11 @@
 
 .btn-secondary {
   @include mix.button-base;
-  background-color: var(--md-secondary-container);
-  color: var(--md-on-secondary-container);
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
 
   &:hover {
-    background-color: var(--md-secondary-container);
+    background-color: var(--mat-sys-secondary-container);
     filter: brightness(0.95);
   }
 
@@ -48,7 +48,7 @@
 .btn-text {
   @include mix.button-base;
   background-color: transparent;
-  color: var(--md-primary);
+  color: var(--mat-sys-primary);
   box-shadow: none;
   padding: vars.$spacing-sm vars.$spacing-md;
 
@@ -63,12 +63,12 @@
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  color: var(--md-on-surface-variant);
+  color: var(--mat-sys-on-surface-variant);
   @include mix.transition(background-color, color);
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
-    color: var(--md-on-surface);
+    color: var(--mat-sys-on-surface);
   }
 
   &:disabled { opacity: 0.5; cursor: not-allowed; }

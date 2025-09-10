@@ -1,2 +1,6 @@
-/* Header relies on global .theme-header styles from 7-1 SCSS. Keep file for Angular styleUrl. */
+/* Header relies on global .theme-header styles from 7-1 SCSS. Add minimal tweaks for Material. */
+
+.theme-header {
+  .spacer { flex: 1; }
+}
 

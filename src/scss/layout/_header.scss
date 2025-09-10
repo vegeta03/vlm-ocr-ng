@@ -4,9 +4,9 @@
 @use '../abstracts/mixins' as mix;
 
 .theme-header {
-  background-color: var(--md-surface);
-  color: var(--md-on-surface);
-  border-bottom: 1px solid var(--md-outline);
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  border-bottom: 1px solid var(--mat-sys-outline);
 
   h1 {
     font-size: 1.25rem;

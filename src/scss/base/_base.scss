@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as mix;
 
 body {
-  background-color: var(--md-sys-color-background, #fafbfc);
+  background-color: var(--mat-sys-surface);
   @include mix.transition(all);
   margin: 0;
   height: 100vh;
@@ -21,10 +21,10 @@ main {
 }
 
 // Background & Surface colors
-.bg-surface { background-color: var(--md-surface); }
-.bg-surface-variant { background-color: var(--md-surface-variant); }
-.text-on-surface { color: var(--md-on-surface); }
-.text-on-surface-variant { color: var(--md-on-surface-variant); }
+.bg-surface { background-color: var(--mat-sys-surface); }
+.bg-surface-variant { background-color: var(--mat-sys-surface-container); }
+.text-on-surface { color: var(--mat-sys-on-surface); }
+.text-on-surface-variant { color: var(--mat-sys-on-surface-variant); }
 
 // Elevation
 .elevation-1 { @include mix.elevation(1); }
@@ -32,8 +32,8 @@ main {
 .elevation-3 { @include mix.elevation(3); }
 
 // Additional utility classes for dynamic theming
-.bg-primary { background-color: var(--md-primary); }
-.text-primary { color: var(--md-primary); }
-.bg-secondary { background-color: var(--md-secondary); }
-.text-secondary { color: var(--md-secondary); }
+.bg-primary { background-color: var(--mat-sys-primary); }
+.text-primary { color: var(--mat-sys-primary); }
+.bg-secondary { background-color: var(--mat-sys-secondary); }
+.text-secondary { color: var(--mat-sys-secondary); }
 
