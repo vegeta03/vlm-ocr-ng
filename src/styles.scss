@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+// Import SCSS modules first (Sass requires @use before any other rules)
+@use './scss/main' as *;
+
+// Then bring in Tailwind layers
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,20 @@
+// Custom Theme
+// This theme is dynamically set via application logic
+@use 'theme-variables' as vars;
+
+.theme-custom {
+  // Default values that can be overridden dynamically
+  --md-primary: #ff7043;
+  --md-on-primary: #ffffff;
+  --md-primary-container: rgba(255, 112, 67, 0.12);
+  --md-on-primary-container: #ff7043;
+
+  // Other colors remain same as light theme by default
+  --md-surface: #{vars.$surface};
+  --md-surface-variant: #{vars.$surface-variant};
+  --md-on-surface: #{vars.$on-surface};
+  --md-on-surface-variant: #{vars.$on-surface-variant};
+  --md-outline: #{vars.$outline};
+  --md-error: #{vars.$error};
+}
+

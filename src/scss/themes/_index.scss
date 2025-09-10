@@ -1,0 +1,6 @@
+// Forward all theme files
+@use 'theme-variables' as *;
+@forward 'theme-light';
+@forward 'theme-dark';
+@forward 'theme-custom';
+

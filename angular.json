@@ -33,8 +33,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/vlm.css"
+              "src/styles.scss"
             ]
           },
           "configurations": {

@@ -1,0 +1,22 @@
+// Main SCSS file that uses all partials (7-1 pattern)
+// Abstracts
+@use 'abstracts' as *;
+
+// Base
+@use 'base';
+
+// Themes
+@use 'themes';
+
+// Layout
+@use 'layout';
+
+// Components
+@use 'components';
+
+// Utilities
+@use 'utilities';
+
+// Pages
+@use 'pages';
+

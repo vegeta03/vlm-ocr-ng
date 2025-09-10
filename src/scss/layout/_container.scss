@@ -1,0 +1,44 @@
+// Container
+// Styles for the main content area that hosts the container
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
+
+main {
+  flex-grow: 1;
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+}
+
+// Full screen container
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: vars.$spacing-md;
+  gap: vars.$spacing-md;
+
+  @include mix.respond-to(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include mix.respond-below(md) {
+    padding: vars.$spacing-sm;
+    gap: vars.$spacing-sm;
+  }
+}
+
+// Theme Selector
+.theme-selector {
+  position: absolute;
+  top: vars.$spacing-sm;
+  right: vars.$spacing-sm;
+  z-index: 1000;
+}
+

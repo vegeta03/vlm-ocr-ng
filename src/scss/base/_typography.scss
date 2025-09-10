@@ -1,0 +1,66 @@
+// Typography
+// Base typography styles
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
+
+html, body {
+  font-family: vars.$font-family-base !important;
+  color: var(--md-on-surface);
+  line-height: vars.$line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-display: swap;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: vars.$font-weight-medium;
+  line-height: vars.$line-height-tight;
+  color: var(--md-on-surface);
+  margin-bottom: vars.$spacing-sm;
+}
+
+h1 {
+  font-size: vars.$font-size-title-large;
+}
+
+h2 {
+  font-size: vars.$font-size-title-medium;
+}
+
+h3 {
+  font-size: vars.$font-size-title-small;
+}
+
+p {
+  margin-bottom: vars.$spacing-md;
+}
+
+.text-title-large {
+  @include mix.title-large;
+  color: var(--md-on-surface);
+  margin-bottom: vars.$spacing-md;
+}
+
+.text-title-medium {
+  @include mix.title-medium;
+  color: var(--md-on-surface);
+}
+
+.text-body-large {
+  @include mix.body-large;
+}
+
+.text-body-medium {
+  @include mix.body-medium;
+}
+
+.text-body-small {
+  @include mix.body-small;
+}
+
+.code-text {
+  font-family: vars.$font-family-code;
+}
+

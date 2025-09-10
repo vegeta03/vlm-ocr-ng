@@ -1,0 +1,114 @@
+// Home Page
+// Styles specific to the home page
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
+
+// File upload section
+.file-upload-section {
+  background-color: var(--md-surface-variant);
+  padding: vars.$spacing-md;
+  border-radius: vars.$border-radius-lg;
+  @include mix.elevation(2);
+
+  h2 { margin-bottom: vars.$spacing-sm; }
+
+  p {
+    @include mix.body-medium;
+    color: var(--md-on-surface-variant);
+    margin-bottom: vars.$spacing-md;
+  }
+
+  .supported-formats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-xs;
+    margin: vars.$spacing-sm 0;
+  }
+
+  #fileInput { display: none; }
+
+  label[for="fileInput"] { @include mix.flex-center; gap: vars.$spacing-sm; }
+
+  #fileDetails {
+    margin-top: vars.$spacing-md;
+    padding: vars.$spacing-sm;
+    background-color: var(--md-surface);
+    border-radius: vars.$border-radius-md;
+    @include mix.body-medium;
+    color: var(--md-on-surface);
+
+    .empty-state {
+      @include mix.flex-center;
+      gap: vars.$spacing-sm;
+
+      svg { width: 1.25rem; height: 1.25rem; color: var(--md-on-surface-variant); }
+    }
+  }
+}
+
+// Preview section
+.preview-section {
+  h2 { margin-bottom: vars.$spacing-sm; }
+
+  p {
+    @include mix.body-medium;
+    color: var(--md-on-surface-variant);
+    margin-bottom: vars.$spacing-md;
+  }
+
+  .preview-controls {
+    @include mix.flex-between;
+    margin-bottom: vars.$spacing-sm;
+
+    .preview-actions { @include mix.flex-center; gap: vars.$spacing-sm; }
+  }
+}
+
+// OCR output section
+.right-panel {
+  background-color: var(--md-surface-variant);
+  padding: vars.$spacing-lg;
+  border-radius: vars.$border-radius-lg;
+  @include mix.elevation(2);
+
+  h2 { margin-bottom: vars.$spacing-sm; }
+
+  p { @include mix.body-medium; color: var(--md-on-surface-variant); margin-bottom: vars.$spacing-md; }
+
+  .format-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$spacing-xs;
+    margin: vars.$spacing-sm 0;
+  }
+
+  #ocrOutput {
+    margin-top: vars.$spacing-sm;
+    border-radius: vars.$border-radius-lg;
+    overflow: hidden;
+
+    .flex { @include mix.flex-between; margin-bottom: vars.$spacing-sm; }
+
+    .status-indicator { @include mix.flex-center; }
+    .status-indicator .status-dot { margin-right: vars.$spacing-sm; }
+    .status-indicator #statusText { @include mix.body-small; }
+
+    textarea {
+      width: 100%;
+      height: 12rem;
+      padding: vars.$spacing-md;
+      background-color: var(--md-surface);
+      border-radius: vars.$border-radius-lg;
+      color: var(--md-on-surface);
+      outline: none;
+      resize: none;
+      font-family: vars.$font-family-code;
+
+      &:focus { box-shadow: 0 0 0 2px var(--md-primary); @include mix.transition(box-shadow); }
+      &::placeholder { color: var(--md-on-surface-variant); }
+    }
+  }
+
+  .action-buttons { display: flex; justify-content: flex-end; gap: vars.$spacing-sm; margin-top: vars.$spacing-md; }
+}
+
