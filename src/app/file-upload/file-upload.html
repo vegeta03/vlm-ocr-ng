@@ -1,0 +1,27 @@
+<div class="file-upload-section bg-surface-variant elevation-2">
+  <h2 class="text-title-large mb-2">File upload for OCR using a VLM</h2>
+  <p class="text-body-medium text-on-surface-variant">Supports JPG, PNG, PDF and multi-page TIFF files</p>
+  <p class="text-body-medium text-on-surface-variant mb-4">File details will appear below after selection</p>
+  <input type="file" id="fileInput" class="hidden" accept=".jpg,.jpeg,.png,.pdf,.tiff,.tif" (change)="onChange($event)"/>
+  <label for="fileInput" class="btn-primary">
+    Upload File
+  </label>
+  <div id="fileDetails" [class.state-empty]="!file">
+    @if (!file) {
+      <div class="empty-state">
+        <span class="text-on-surface-variant">No file selected</span>
+      </div>
+    } @else {
+      <div class="file-info">
+        <div class="flex items-center">
+          <span class="file-name font-medium">{{ file.name }}</span>
+          <span class="file-size text-on-surface-variant ml-2">{{ file.size | bytes }}</span>
+          <button class="btn-secondary btn-small ml-auto" (click)="clear()">Clear</button>
+        </div>
+        <div class="progress-container" [class.hidden]="!uploading">
+          <div class="progress-bar" [style.width.%]="progress"></div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

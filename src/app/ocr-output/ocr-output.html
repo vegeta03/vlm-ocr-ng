@@ -1,0 +1,14 @@
+<h2 class="text-title-large mb-2 mt-6">Raw or Preview of VLM OCR extracted</h2>
+<div id="ocrOutput">
+  <div class="flex">
+    <div class="status-indicator">
+      <span class="status-dot bg-secondary" [class.processing]="state.status()==='processing'"></span>
+      <span id="statusText" class="text-body-small">{{ statusText() }}</span>
+    </div>
+    <button id="copyButton" class="btn-icon" [disabled]="state.status()!=='complete'" (click)="copy()" title="Copy to clipboard">📋</button>
+  </div>
+  <textarea class="code-text" placeholder="OCR output will appear here" [readOnly]="true" [value]="state.output()"></textarea>
+</div>
+<div class="action-buttons">
+  <button id="downloadButton" class="btn-primary" [disabled]="state.status()!=='complete'" (click)="download()">Download</button>
+</div>

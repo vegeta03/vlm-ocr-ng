@@ -1,0 +1,30 @@
+<div class="preview-section bg-surface-variant elevation-2">
+  <div class="preview-controls">
+    <h2 class="text-title-large">Preview selected Image or TIFF file</h2>
+    <button
+      id="togglePreviewSize"
+      class="btn-toggle-size"
+      (click)="toggleSize()"
+      [title]="previewLarge ? 'Reduce preview size' : 'Enlarge preview'"
+    >
+      Toggle
+    </button>
+  </div>
+  <p class="text-body-medium text-on-surface-variant mb-4">
+    Navigate through pages using controls below
+  </p>
+  <div id="imagePreview">
+    @if (!imgSrc()) {
+    <div class="empty-state">
+      <span>Upload an image to preview</span>
+    </div>
+    } @else {
+    <img [src]="imgSrc()" alt="Preview" />
+    }
+    <div class="page-controls" [style.opacity]="showPager() ? 1 : 0">
+      <button id="prevPage" class="btn-icon" [disabled]="atStart()" (click)="nav(-1)">◀</button>
+      <span id="pageInfo">Page {{ page() + 1 }} of {{ pages() }}</span>
+      <button id="nextPage" class="btn-icon" [disabled]="atEnd()" (click)="nav(1)">▶</button>
+    </div>
+  </div>
+</div>
