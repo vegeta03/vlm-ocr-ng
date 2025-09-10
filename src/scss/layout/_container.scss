@@ -10,8 +10,8 @@ main {
   overflow: hidden;
 }
 
-// Full screen container
-.container {
+// Full screen app container (avoid conflict with Tailwind's .container)
+.app-container {
   width: 100%;
   height: 100%;
   margin: 0 !important;
