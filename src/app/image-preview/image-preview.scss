@@ -1,0 +1,16 @@
+/* Ensure the preview fills remaining vertical space inside left-panel */
+:host {
+  display: block;
+}
+
+.preview-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+#imagePreview {
+  flex: 1 1 auto;
+  min-height: 0; /* allow flex container to shrink properly */
+}
+

@@ -9,7 +9,6 @@ import { FileState } from '../core/file-state';
 })
 export class ImagePreview {
   private readonly state = inject(FileState);
-  previewLarge = false;
 
   readonly pages = computed(() => this.state.totalPages());
   readonly page = computed(() => this.state.currentPage());
@@ -22,11 +21,7 @@ export class ImagePreview {
     return URL.createObjectURL(file);
   });
 
-  toggleSize() {
-    this.previewLarge = !this.previewLarge;
-    document.body.classList.toggle('preview-large', this.previewLarge);
-    localStorage.setItem('vlm-ocr-preview-large', String(this.previewLarge));
-  }
+  // removed preview size toggle; preview always fills remaining space
 
   nav(delta: number) {
     const n = this.state.currentPage() + delta;
