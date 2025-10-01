@@ -5,23 +5,55 @@
 
 // Panel adjustments for full-screen
 .left-panel, .right-panel {
-  height: 100%;
+  height: 100%; /* fill the app-container height */
+  max-height: 100%;
+  min-height: 0; /* allow flex children to shrink and avoid overflow when content grows */
   overflow-y: auto;
   padding: vars.$spacing-lg;
-  padding-top: 0!important;
+  border-radius: vars.$border-radius-lg;
   @include mix.flex-column;
 
-  @include mix.respond-to(md) {
-    width: calc(50% - (vars.$spacing-md / 2));
-    margin: 0;
+  /* Default: stacked panels (mobile-first) */
+  flex: 1 1 100%;
+  width: 100%;
+  margin: 0;
+
+  /* Desktop/tablet: two-column layout. Specific ratios applied below */
+  & {
+    @include mix.respond-to(md) {
+      width: auto;
+      margin: 0;
+    }
   }
 }
 
+/* Normalize top spacing for the immediate children so panels align */
+.left-panel > *:first-child,
+.right-panel > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* (panel ratios are defined per-panel below: left: 60/65, right: 40/35) */
+
 .left-panel {
-  .preview-section {
-    flex: 1;
-    @include mix.flex-column;
+  padding-top: 0 !important;
+  & {
+    @include mix.respond-to(md) {
+      grid-column: 1 / 2;
+      align-self: start;
+    }
   }
+  .preview-section {
+    flex: 1 1 auto;
+    @include mix.flex-column;
+    min-height: 0; /* allow preview to shrink inside the panel */
+    overflow: auto; /* scroll if content exceeds available space */
+  }
+
+  /* Ensure top card doesn't stretch and preview takes remaining space */
+  > .file-upload-section { flex: 0 0 auto; }
+  > .preview-section { flex: 1 1 auto; }
 
   .preview-section, .file-upload-section {
     min-height: 230px;
@@ -48,14 +80,30 @@
 
   // Adjust for bottom padding
   .preview-section:last-child { margin-bottom: 0; }
+
+  /* Width on md+ is controlled by grid in _container.scss */
 }
 
 .right-panel {
+  height: fit-content;
   @include mix.flex-column;
+  & {
+    @include mix.respond-to(md) {
+      grid-column: 2 / 3;
+      align-self: start;
+    }
+  }
 
+  /* Right panel sits below on small screens and to the right on md+ */
   @include mix.respond-below(md) {
     margin-top: vars.$spacing-md;
   }
+
+  /* Ensure the top controls don't expand and the OCR output fills remaining height */
+  > *:first-child { flex: 0 0 auto; }
+  #ocrOutput { flex: 1 1 auto; min-height: 0; }
+
+  /* Width on md+ is controlled by grid in _container.scss */
 }
 
 #ocrOutput {

@@ -1,2 +1,41 @@
 /* OCR output styling provided by global .right-panel and #ocrOutput rules. */
 
+#ocrOutput {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	min-height: 0; /* allow children to shrink in flex container */
+}
+
+/* Make tabs fill available space and allow tab panels to scroll */
+.mat-tab-group {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.mat-tab-body-wrapper, .mat-tab-body {
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+#ocrOutput textarea.code-text {
+	flex: 2 2 auto;
+	min-height: 11.5rem;
+	height: fit-content; /* prefer flex sizing */
+	overflow: auto;
+	resize: vertical;
+	white-space: pre-wrap;
+}
+
+.preview-pane, .preview-pane pre {
+	max-height: 100%;
+	overflow: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.status-indicator { display: flex; align-items: center; gap: 8px; }
+
+

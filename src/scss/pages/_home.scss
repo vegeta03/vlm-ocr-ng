@@ -95,13 +95,13 @@
 
     textarea {
       width: 100%;
-      height: 12rem;
+      min-height: 8rem;
       padding: vars.$spacing-md;
       background-color: var(--md-surface);
       border-radius: vars.$border-radius-lg;
       color: var(--md-on-surface);
       outline: none;
-      resize: none;
+      resize: vertical;
       font-family: vars.$font-family-code;
 
       &:focus { box-shadow: 0 0 0 2px var(--md-primary); @include mix.transition(box-shadow); }

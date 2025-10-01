@@ -22,7 +22,9 @@
     .color-options { display: flex; gap: vars.$spacing-md; }
   }
 
-  @include mix.respond-to(md) { padding: vars.$spacing-md; }
-  @include mix.respond-below(md) { padding: vars.$spacing-sm; }
+  & {
+    @include mix.respond-to(md) { padding: vars.$spacing-md; }
+    @include mix.respond-below(md) { padding: vars.$spacing-sm; }
+  }
 }
 
